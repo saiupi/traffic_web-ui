@@ -1,0 +1,72 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 nopadding">
+            <div class="bg-left-03">
+                <img src="../../assets/images/login-logo.png" class="bg-logo-register" alt="">
+            </div>
+        </div>
+        <div class="col-md-6 nopadding">
+            <div class="right-content-r">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-3"></div>
+                    <!-- <div class="col-md-2 sor">
+                        <div class="tooltip-col"><img src="../../assets/images/icons/sorting.png" alt="">
+                            <span class="tooltiptext2">
+                                <ul class="list-group">
+                                    <li class="list-group-item"> <img src="../../assets/images/icons/no-parking.png" alt="">
+                                        &nbsp; Get All Violations
+                                        </li>
+                                    <li class="list-group-item"> <img src="../../assets/images/icons/oneway.png" alt=""> &nbsp;
+                                        Pending Violations
+                                    </li>
+                                    <li class="list-group-item"> <img src="../../assets/images/icons/parking-on-footh.png"
+                                        alt=""> &nbsp; Approved Violations
+                                    </li>
+                                    <li class="list-group-item"> <img src="../../assets/images/icons/Riding-footpath.png"
+                                        alt=""> &nbsp; Rejected Violations
+                                    </li>
+                                </ul>
+                            </span>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="main-rewareds" style="margin-top: 6%;" *ngIf="notificationData != ''">
+                    <div class="row">
+                        <div class="col-md-6 col-wdt-6" *ngFor="let notify of notificationData">
+                            <div class="boxt-01 padding-full">
+                                <div class="row">
+                                    <div class="col-md-5 nopadding">
+                                        <h6 *ngIf="notify.violationType != ''">{{ notify.violationType }}</h6>
+                                        <h6 *ngIf="notify.violationType == undefined">Violation Issue</h6>
+                                        <img src="{{ notify.image }}" alt="" class="violationImg">
+                                    </div>
+                                    <div class="col-md-6 nopadding"  style="margin-top: 13px !important;">
+                                        <img src="../../assets/images/icons/clock-02.png" alt="" class="margin-h">
+                                        <span class="sp-font">{{ transform(notify.submitted_on) }}</span><br>
+                                        <span class="sp-font" style="color:#2490BA; font-size: 14px;;">{{ notify.userViolationId }}</span><br>
+                                        <img *ngIf="notify.status == 1001" src="../../assets/images/icons/approve.png" alt="" class="space-h notifyImg">
+                                        <img *ngIf="notify.status == 1002" src="../../assets/images/icons/cancel.png" alt="" class="space-h ">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-rewareds" *ngIf="notificationData == ''">
+                    <div class="row">
+                        <div class="col-md-12 noDataView">
+                            No notifications yet to view
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="footer">
+                    <h6>Powered by Ojas Innovative Technologies</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+.registration {
+    width: 20%;
+    background-color: #2490BA;
+    float: right;
+    margin-left: 15px;
+}
+
+.modal-header { 
+    border-bottom: none !important;
+}
+
+.mobileEmail {
+    background-color: none !important;
+    background-clip: none !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 2px solid #2490BA;
+    border-radius: none !important;
+}
+
+.mobileEmail:focus {
+    box-shadow: none !important;
+}
+
+.modal-title {
+    margin-left: 30%;
+}
+
+.form-row {
+    padding-bottom: 5px;
+}
+
+.col-md-12 {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}

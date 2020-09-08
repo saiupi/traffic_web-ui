@@ -1,0 +1,97 @@
+<div class="row">
+    <div class="col-md-12" *ngIf="!guest">
+        <nav class="navbar navbar-expand-sm bg-light justify-content-end">
+            <img src="../../../assets/images/logo.png" class="headerLogo" (click)="backToHome()">
+            <!-- <div class="col-md-2 sor">
+                    <span class="tooltiptext2">
+                        <ul class="list-group">
+                            <li class="list-group-item"> <img src="../../assets/images/icons/no-parking.png" alt="">
+                                &nbsp; Get All Violations
+                                </li>
+                            <li class="list-group-item"> <img src="../../assets/images/icons/oneway.png" alt=""> &nbsp;
+                                Pending Violations
+                            </li>
+                            <li class="list-group-item"> <img src="../../assets/images/icons/parking-on-footh.png"
+                                alt=""> &nbsp; Approved Violations
+                            </li>
+                            <li class="list-group-item"> <img src="../../assets/images/icons/Riding-footpath.png"
+                                alt=""> &nbsp; Rejected Violations
+                            </li>
+                        </ul>
+                    </span>
+            </div> -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <span class="nav-link links" (click)="routeIndividual('postIssue')">
+                        <img src="../../assets/images/icon-01.png" class="headerImg">Post Issue
+                    </span>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link links" (click)="routeIndividual('viewViolation')">
+                        <img src="../../assets/images/icon-02.png" class="headerImg">View Violations
+                    </span>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link links" (click)="routeIndividual('reward')">
+                        <img src="../../assets/images/icon-03.png" class="headerImg">Reward Points
+                    </span>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link links" style="margin-right: 50px;" (click)="routeIndividual('notify')">
+                        <img src="../../assets/images/icon-04.png" class="headerImg">Notifications
+                    </span>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link text-capitalize">{{ userData?.fname }} {{ userData?.lname }}</span>
+                </li>
+                <li class="nav-item dropdown">
+                    <span class="nav-link dropdown-toggle" data-toggle="dropdown" *ngIf="!profileImage">
+                        <span><i style="font-size: 25px; margin-top: -1px;" class="fa fa-user-circle-o"></i></span>
+                    </span>
+                    <span class="nav-link dropdown-toggle" data-toggle="dropdown" *ngIf="profileImage">
+                        <span><img src="{{ profileImage }}" height="25px" width="25px"></span>
+                    </span>
+                    <div class="dropdown-menu dropdown-menu-right" style="width: max-content;">
+                        <ul class="list-group">
+                            <li class="list-group-item cursor" (click)="routeToComp('dashboard')"><img src="../../assets/images/icons/no-parking.png" alt="">&nbsp; 
+                                Dashboard
+                            </li>
+                            <li class="list-group-item cursor" (click)="routeToComp('updateProile')"><img src="../../assets/images/icons/oneway.png" alt="">&nbsp; 
+                                Edit Profile
+                            </li>
+                            <li class="list-group-item cursor" (click)="routeToComp('changePassword')"><img src="../../assets/images/icons/parking-on-footh.png" alt="">&nbsp; 
+                                Change Password
+                            </li>
+                            <li class="list-group-item cursor" (click)="loggedOut()"><img src="../../assets/images/icons/Riding-footpath.png" alt="">&nbsp; 
+                                Logout
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="col-md-12" *ngIf="guest">
+        <nav class="navbar navbar-expand-sm bg-light justify-content-end">
+            <img src="../../../assets/images/logo.png" class="headerLogo">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <span class="nav-link">Welcome to Guest</span>
+                </li>
+                <li class="nav-item dropdown">
+                    <span class="nav-link dropdown-toggle" data-toggle="dropdown">
+                        <span><i style="font-size: 25px; margin-top: -1px;" class="fa fa-user-circle-o"></i></span>
+                    </span>
+                    <div class="dropdown-menu dropdown-menu-right" style="width: max-content;">
+                        <ul class="list-group">
+                            <li class="list-group-item cursor" (click)="loggedOut()"><img src="../../assets/images/icons/no-parking.png" alt="">&nbsp; 
+                                Logout
+                            </li>
+                        </ul>
+                        <!-- <a class="dropdown-item nav-link cursor" style="color: black;" (click)="loggedOut()">Logout</a> -->
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

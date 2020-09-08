@@ -1,0 +1,286 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 nopadding">
+            <div class="bg-left-02">
+                <img src="../../assets/images/login-logo.png" class="bg-logo-register" alt="">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="right-content">
+                <div class="row justify-content-center rc-c">
+                    <div class="col-md-12 md-122">
+                        <img src="../../assets/images/icons/back-icon.png" alt="" (click)="backToLogin()" style="cursor: pointer;">
+                        <br><br>
+                        <h4 style="color: #2490BA;">Register</h4>
+                        <h6>Come Join For A Voilation Free Scociety</h6>
+                    </div>
+                    <div class="col-md-12">
+                        <form [formGroup]="registrationForm" autocomplete="off" (ngSubmit)="registration()">
+                            <div class="form-row">
+                                <div class="col form-group">
+                                    <label>First Name </label>
+                                    <input type="text" class="form-control" placeholder="First name" formControlName="fname"
+                                    [ngClass]="{ 'is-invalid': f.fname.touched && f.fname.errors }" autocomplete="off">
+                                    <div *ngIf="f.fname.touched && f.fname.errors" class="invalid-feedback">
+                                        <div *ngIf="f.fname.errors.required">First name is required</div>
+                                        <div *ngIf="f.fname.errors.pattern">Enter only alphabets</div>
+                                    </div>
+                                </div>
+                                <div class="col form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Last name" formControlName="lname"
+                                    [ngClass]="{ 'is-invalid': f.lname.touched && f.lname.errors }" autocomplete="off">
+                                    <div *ngIf="f.lname.touched && f.lname.errors" class="invalid-feedback">
+                                        <div *ngIf="f.lname.errors.required">Last name is required</div>
+                                        <div *ngIf="f.lname.errors.pattern">Enter only alphabets</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col form-group">
+                                    <label>Mobile No </label>
+                                    <input type="text" class="form-control" placeholder="Mobile No" formControlName="username"
+                                    [ngClass]="{ 'is-invalid': f.username.touched && f.username.errors }" autocomplete="off">
+                                    <div *ngIf="f.username.touched && f.username.errors" class="invalid-feedback">
+                                        <div *ngIf="f.username.errors.required">Mobile number is required</div>
+                                        <div *ngIf="f.username.errors.pattern">Must be a valid mobile number</div>
+                                    </div>
+                                </div>
+                                <div class="col form-group">
+                                    <label>Email Id</label>
+                                    <input type="text" class="form-control" placeholder="Email Id" formControlName="email"
+                                    [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" (change)="checkEmail($event)" autocomplete="off">
+                                    <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
+                                        <div *ngIf="f.email.errors.required">Email is required</div>
+                                        <div *ngIf="f.email.errors.email || f.email.errors.pattern">Email must be a valid email address</div>
+                                    </div>
+                                    <div style="color: #dc3545;">
+                                        <span style="font-size:13px">{{ emailError }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col form-group">
+                                    <label>DOB</label>
+                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" formControlName="dob"
+                                    [ngClass]="{ 'is-invalid': f.dob.touched && f.dob.errors }" autocomplete="off"
+                                    [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" [max]="maxDate" (keydown)="valuechange($event)">
+                                    <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                                    <div *ngIf="f.dob.touched && f.dob.errors" class="invalid-feedback">
+                                        <div *ngIf="f.dob.errors.required">Date of birth is required</div>
+                                        <!-- <div *ngIf="f.username.errors.pattern">Must be a valid mobile number</div> -->
+                                    </div>
+                                </div>
+                                <div class="col form-group">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-2">
+                                            <label>Gender</label>
+                                            <br>
+                                            <label class="custom-control custom-radio">
+                                                <input type="radio" class="custom-control-input" id="defaultGroupExample1"
+                                                    name="groupOfDefaultRadios" formControlName="gender" value="male" name="gender"
+                                                    [ngClass]="{ 'is-invalid': f.gender.touched && f.gender.errors }" autocomplete="off">
+                                                <label class="custom-control-label" for="defaultGroupExample1"> Male</label>
+                                            </label>
+                                            <div *ngIf="f.gender.touched && f.gender.errors" class="invalid-feedback">
+                                                <div *ngIf="f.gender.errors.required">Gender is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label>&nbsp;</label>
+                                            <br>
+                                            <label class="custom-control custom-radio" style="margin-left: 42%;">
+                                                <input type="radio" class="custom-control-input" id="defaultGroupExample2"
+                                                    name="groupOfDefaultRadios" formControlName="gender" value="female" name="gender"
+                                                    [ngClass]="{ 'is-invalid': f.gender.touched && f.gender.errors }" autocomplete="off">
+                                                <label class="custom-control-label" for="defaultGroupExample2"> Female</label>
+                                            </label>
+                                            <div *ngIf="f.gender.touched && f.gender.errors" class="invalid-feedback">
+                                                <div *ngIf="f.gender.errors.required">Gender is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label>DOB</label>
+                                    <input type="text" class="form-control" placeholder="Date" formControlName="date"
+                                    [ngClass]="{ 'is-invalid': f.date.touched && f.date.errors }" autocomplete="off">
+                                    <div *ngIf="f.date.touched && f.date.errors" class="invalid-feedback">
+                                        <div *ngIf="f.date.errors.required">Date is required</div>
+                                        <div *ngIf="f.date.errors.minlength">Enter a valid date</div>
+                                        <div *ngIf="f.date.errors.maxlength">Enter a valid date</div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>&nbsp; </label>
+                                    <input type="text" class="form-control" placeholder="Month" formControlName="month"
+                                    [ngClass]="{ 'is-invalid': f.month.touched && f.month.errors }" autocomplete="off">
+                                    <div *ngIf="f.month.touched && f.month.errors" class="invalid-feedback">
+                                        <div *ngIf="f.month.errors.required">Month is required</div>
+                                        <div *ngIf="f.month.errors.minlength">Enter a valid month</div>
+                                        <div *ngIf="f.month.errors.maxlength">Enter a valid month</div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>&nbsp; </label>
+                                    <input type="text" class="form-control" placeholder="Year" formControlName="year"
+                                    [ngClass]="{ 'is-invalid': f.year.touched && f.year.errors }" autocomplete="off">
+                                    <div *ngIf="f.year.touched && f.year.errors" class="invalid-feedback">
+                                        <div *ngIf="f.year.errors.required">Year is required</div>
+                                        <div *ngIf="f.year.errors.minlength">Enter a valid year</div>
+                                        <div *ngIf="f.year.errors.maxlength">Enter a valid year</div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- <div class="form-row">
+                                <div class="form-group col-md-2">
+                                    <label>Gender</label>
+                                    <br>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="defaultGroupExample1"
+                                            name="groupOfDefaultRadios" formControlName="gender" value="male" name="gender"
+                                            [ngClass]="{ 'is-invalid': f.gender.touched && f.gender.errors }" autocomplete="off">
+                                        <label class="custom-control-label" for="defaultGroupExample1"> Male</label>
+                                    </label>
+                                    <div *ngIf="f.gender.touched && f.gender.errors" class="invalid-feedback">
+                                        <div *ngIf="f.gender.errors.required">Gender is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>&nbsp;</label>
+                                    <br>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="defaultGroupExample2"
+                                            name="groupOfDefaultRadios" formControlName="gender" value="female" name="gender"
+                                            [ngClass]="{ 'is-invalid': f.gender.touched && f.gender.errors }" autocomplete="off">
+                                        <label class="custom-control-label" for="defaultGroupExample2"> Female</label>
+                                    </label>
+                                    <div *ngIf="f.gender.touched && f.gender.errors" class="invalid-feedback">
+                                        <div *ngIf="f.gender.errors.required">Gender is required</div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="form-row">
+                                <div class="form-group  col-md-6">
+                                    <label>Password</label>
+                                    <input class="form-control" type="password" id="icon-01" placeholder="Enter Password" formControlName="password"
+                                    [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors }" autocomplete="off"> 
+                                    <div *ngIf="f.password.touched && f.password.errors" class="invalid-feedback">
+                                        <div *ngIf="f.password.errors.required">Password is required</div>
+                                        <div *ngIf="f.password.errors.minlength || f.password.errors.pattern">
+                                            Password should contain 8 characters includes one lowercase, uppercase and a digit
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Confirm Password</label>
+                                    <!-- <div class="input-group mb-3">
+                                        <input class="form-control" type="password" id="icon-02" placeholder="Confirm Password" formControlName="confirmPassword"
+                                        [ngClass]="{ 'is-invalid': f.confirmPassword.touched && f.confirmPassword.errors }" autocomplete="off" id="password-field">
+                                        <div class="input-group-append">
+                                        <span class="input-group-text" style="background-color: transparent;" (click)="showHide()">
+                                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                        </span>
+                                        </div>
+                                        <div *ngIf="f.confirmPassword.touched && f.confirmPassword.errors" class="invalid-feedback">
+                                            <div *ngIf="f.confirmPassword.errors.required">Confirm password is required</div>
+                                            <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                                        </div>
+                                    </div>  -->
+                                    <input class="form-control" type="password" id="icon-02" placeholder="Confirm Password" formControlName="confirmPassword"
+                                    [ngClass]="{ 'is-invalid': f.confirmPassword.touched && f.confirmPassword.errors }" autocomplete="off">
+                                    <div *ngIf="f.confirmPassword.touched && f.confirmPassword.errors" class="invalid-feedback">
+                                        <div *ngIf="f.confirmPassword.errors.required">Confirm password is required</div>
+                                        <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block registration" [disabled]='!registrationForm.valid'>
+                                    Register 
+                                </button>
+                                <button type="button" class="btn btn-primary" style="width: 20%; float: right;" (click)="backToLogin()"> 
+                                    Back 
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="footer">
+                        <h6>Powered by Ojas Innovative Technologies</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mobile otp verification modal pop-up -->
+
+<div class="modal fade md-11" id="mobileModal">
+    <div class="modal-dialog modal-md">
+    <span class="pop"><img src="../../assets/images/popup.png" alt="" class="model-img"> </span>
+      <div class="modal-content mc-r">
+        <div class="modal-header text-center">
+          <h4 class="modal-title">Verify your mobile</h4>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="mobileOtpForm" autocomplete="off">
+                <div class="form-row">
+                    <div class="col form-group">
+                        <input type="text" class="form-control mobileEmail" placeholder="Enter 4 digit mobile OTP"  autocomplete="off"
+                        formControlName="Mpassword" [ngClass]="{ 'is-invalid': m.Mpassword.touched && m.Mpassword.errors }">
+                        <div *ngIf="m.Mpassword.touched && m.Mpassword.errors" class="invalid-feedback">
+                            <div *ngIf="m.Mpassword.errors.required">OTP is required</div>
+                            <div *ngIf="m.Mpassword.errors.minlength || m.Mpassword.errors.maxlength">Plesae enter 4 digit OTP</div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger btn-sm" (click)="mobileDismiss()">Close</button>
+          <button type="button" class="btn btn-info btn-sm" (click)="mobileOTPVerify()">Verify</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- end -->
+
+<!-- Email otp verification modal pop-up -->
+
+<div class="modal fade md-11" id="emailModal">
+    <div class="modal-dialog modal-md">
+    <span class="pop"><img src="../../assets/images/popup.png" alt="" class="model-img"> </span>
+      <div class="modal-content mc-r">
+        <div class="modal-header text-center">
+          <h4 class="modal-title">Verify your e-mail</h4>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="emailOtpForm" autocomplete="off">
+                <div class="form-row">
+                    <div class="col form-group">
+                        <input type="text" class="form-control mobileEmail" placeholder="Enter 4 digit e-mail OTP" autocomplete="off"
+                        formControlName="Epassword" [ngClass]="{ 'is-invalid': e.Epassword.touched && e.Epassword.errors }">
+                        <div *ngIf="e.Epassword.touched && e.Epassword.errors" class="invalid-feedback">
+                            <div *ngIf="e.Epassword.errors.required">OTP is required</div>
+                            <div *ngIf="e.Epassword.errors.minlength || e.Epassword.errors.maxlength">Plesae enter 4 digit OTP</div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger btn-sm" (click)="emailDismiss()">Close</button>
+          <button type="button" class="btn btn-info btn-sm" (click)="emailOTPVerify()">Verify</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <!-- end -->

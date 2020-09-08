@@ -1,0 +1,45 @@
+.updateBtn {
+    width: 20%;
+    margin-top: 20px; 
+    margin-left: 44%;
+}
+
+.upload-btn-wrapper label{
+    padding: 10px;
+    background: #0069d9; 
+    display: table;
+    color: #fff;
+    width: 90%;
+    text-align: center;
+}
+
+.upload-btn-wrapper input[type="file"] {
+    display: none;
+}
+
+.profileImg {
+    width: 90%;
+    border: 1px solid #0069d9;
+}
+
+.modal-header { 
+    border-bottom: none !important;
+}
+
+.mobileEmail {
+    background-color: none !important;
+    background-clip: none !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 2px solid #2490BA;
+    border-radius: none !important;
+}
+
+.mobileEmail:focus {
+    box-shadow: none !important;
+}
+
+.modal-title {
+    margin-left: 30%;
+}

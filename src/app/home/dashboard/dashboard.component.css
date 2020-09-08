@@ -1,0 +1,19 @@
+.container-fluid {
+    padding: 0px !important;
+}
+
+.headerLogo {
+    margin-right: auto;
+    height: 55px;
+    width: 55px;
+    margin-left: 15px;
+}
+
+.guest a {
+    pointer-events: none;
+}
+
+.guest a .box-01 {
+    background-color: rgba(204, 204, 204, 0.34901960784313724);
+    pointer-events: none;
+}

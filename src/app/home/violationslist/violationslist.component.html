@@ -1,0 +1,79 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 nopadding">
+            <div class="bg-left-03">
+                <img src="../../assets/images/login-logo.png" class="bg-logo-register" alt="">
+            </div>
+        </div>
+        <div class="col-md-6 nopadding">
+            <div class="right-content-r">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2 sor">
+                        <div class="nav-item dropdown">
+                            <span class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                <span>
+                                    <img src="../../assets/images/icons/sorting.png" alt="">
+                                </span>
+                            </span>
+                            <div class="dropdown-menu dropdown-menu-right" style="width: max-content; height: 195px;">
+                                <ul class="list-group">
+                                    <li class="list-group-item" (click)="filterAllViolations()"><img src="../../assets/images/icons/oneway.png" alt=""> &nbsp;
+                                        Get All Violations
+                                    </li>
+                                    <li class="list-group-item" (click)="filterViolations('1000')"><img src="../../assets/images/icons/oneway.png" alt=""> &nbsp;
+                                        Pending Violations
+                                    </li>
+                                    <li class="list-group-item" (click)="filterViolations('1001')"><img src="../../assets/images/icons/parking-on-footh.png" alt=""> &nbsp; 
+                                        Approved Violations
+                                    </li>
+                                    <li class="list-group-item" (click)="filterViolations('1002')"><img src="../../assets/images/icons/Riding-footpath.png" alt=""> &nbsp; 
+                                        Rejected Violations
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-rewareds" *ngIf="violationData != ''">
+                    <div class="row">
+                        <div class="col-md-6 col-wdt-6" *ngFor="let violation of filterData">
+                            <div class="boxt-01 padding-full">
+                                <div class="row">
+                                    <div class="col-md-5 nopadding">
+                                        <h6 *ngIf="violation.violationType != ''">{{ violation.violationType }}</h6>
+                                        <h6 *ngIf="violation.violationType == undefined">Violation Issue</h6>
+                                        <img src="{{ violation.image }}" alt="" class="violationImg">
+                                    </div>
+                                    <div class="col-md-6 nopadding"  style="margin-top: 13px !important;">
+                                        <img src="../../assets/images/icons/clock-02.png" alt="" class="margin-h">
+                                        <span class="sp-font">{{ transform(violation.violationDate) }}</span><br>
+                                        <img src="../../assets/images/icons/location.png" alt="" class="margin-h">
+                                        <span class="sp-font">{{ violation.location }}</span><br>
+                                        <img *ngIf="violation.status == 1000" src="../../assets/images/icons/progress.png" alt="" class="space-h">
+                                        <img *ngIf="violation.status == 1001" src="../../assets/images/icons/approve.png" alt="" class="space-h">
+                                        <img *ngIf="violation.status == 1002" src="../../assets/images/icons/cancel.png" alt="" class="space-h">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-rewareds" *ngIf="violationData == ''">
+                    <div class="row">
+                        <div class="col-md-12 noDataView">
+                            Post the violation to view
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="footer">
+                    <h6>Powered by Ojas Innovative Technologies</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

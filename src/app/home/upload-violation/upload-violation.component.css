@@ -1,0 +1,62 @@
+.post {
+    margin-top: 30px;
+}
+
+.uploadImg {
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+.form-group, input:focus{
+    outline: none;
+}
+
+.dateLocation {
+    border: none; 
+    border-bottom: 1px solid #fbc50c;
+}
+
+.dateTime {
+    margin-right: 10px;
+    height: 18px;
+    width: 18px;
+}
+
+.userImg {
+    width: 80%;
+    height: 135px; 
+    margin-top: -16px;
+}
+
+.upload-btn-wrapper label{
+    padding: 10px;
+    background: transparent; 
+    display: table;
+    color: #fff;
+    width: 90%;
+    text-align: center;
+}
+
+.upload-btn-wrapper input[type="file"] {
+    display: none;
+}
+
+.modal-body {
+    padding: 25px 25px 7px 35px; 
+    text-align: center; 
+    color: #052840;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 45.8em;
+}
+
+.logohead {
+    position: absolute !important;
+    margin-top: 14% !important;
+    z-index: 99 !important;
+    margin-left: 40% !important; 
+    height: 119px !important;
+    width: 214px !important;
+}

@@ -1,0 +1,159 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 nopadding">
+            <div class="bg-left">
+                <img src="../../assets/images/bg-login.png" class="bg-login" alt="">
+                <img src="../../assets/images/login-logo.png" class="bg-logo" alt="">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="right-login">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-8">
+                        <img src="../../assets/images/logo.png" class="logo" alt="">
+                        <form [formGroup]="loginForm" (ngSubmit)="userLogin()">
+                            <div class="form-group float-label-control">
+                                <input type="text" class="form-control" placeholder="Enter registered mobile" autocomplete="off"
+                                formControlName="username" [ngClass]="{ 'is-invalid': f.username.touched && f.username.errors }">
+                                <div *ngIf="f.username.touched && f.username.errors" class="invalid-feedback">
+                                    <div *ngIf="f.username.errors.required">Registered mobile is required</div>
+                                    <div *ngIf="f.username.errors.minlength || f.username.errors.maxlength ||f.username.errors.pattern">Please enter a 10 digit mobile number</div>
+                                </div>
+                            </div>
+                            <div class="form-group float-label-control">
+                                <input type="password" class="form-control" placeholder="Enter Password" autocomplete="off"
+                                formControlName="password" [ngClass]="{ 'is-invalid': f.username.touched && f.username.errors }">
+                                <div *ngIf="f.password.touched && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                    <div *ngIf="f.password.errors.minlength">Enter a valid password</div>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <span class="forgout cursor" data-toggle="modal" data-target="#myModalone">Forgot Password</span>
+                            </div>
+                            <div style="margin-top:10px" class="form-group">
+                                <!-- Button -->
+                                <div class="col-sm-12 controls">
+                                    <button type="submit" class="btn btn-success btn-login btn-block" [disabled]='!loginForm.valid'>Login</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12 control">
+                                    <div class="dont">Don't have an account? 
+                                        <a class="Sign" routerLink="register">Sign Up Here</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 control">
+                                    <div class="dont1">Or</div>
+                                </div>
+                                <div class="col-md-12 control">
+                                    <div class="dont2"> 
+                                        <span (click)="guestLogin()" class="cursor">Proceed as a guest</span>
+                                    </div>
+                                </div>
+                                <!-- routerLink="/home/Dashboard" -->
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row">
+                    <div class="footer">
+                        <h6>Powered by Ojas Innovative Technologies</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ <div class="modal md-11" id="myModalone-01">
+    <div class="modal-dialog modal-md modal-dialog-scrollable">
+        <span class="pop"><img src="../../assets/images/popup.png" alt="" class="model-img"> </span>
+        <div class="modal-content mc-r">
+            <div class="modal-body md-b">
+                <h6>Violation Posted Sucessfully</h6>
+                <p>Please View Your Posted <br> Violations In Voilation Section <br> In Dashboard</p>
+                <button type="button" class="btn btn-info" data-dismiss="modal" style="width: 12%;">Ok</button>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+<!-- Forgout Password Popup-->
+
+<div class="modal md-11" id="myModalone">
+    <div class="modal-dialog modal-md modal-dialog-scrollable">
+        <span class="pop"><img src="../../assets/images/popup.png" alt="" class="model-img"> </span>
+        <div class="modal-content mc-r">
+            <div class="modal-body" style="padding: 20px 25px 10px 35px;">
+                <form [formGroup]="changePwdForm">
+                    <div class="form-group" >
+                       <input type="text" class="form-control custome" placeholder="Enter registered mobile"
+                       formControlName="CPmobile" [ngClass]="{ 'is-invalid': c.CPmobile.touched && c.CPmobile.errors }">
+                       <div *ngIf="c.CPmobile.touched && c.CPmobile.errors" class="invalid-feedback">
+                            <div *ngIf="c.CPmobile.errors.required">Registered mobile is required</div>
+                            <div *ngIf="c.CPmobile.errors.minlength || c.CPmobile.errors.maxlength || c.CPmobile.errors.pattern">Please enter a 10 digit mobile number</div>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <input type="password" class="form-control custome" placeholder="New Password"
+                        formControlName="CPpassword" [ngClass]="{ 'is-invalid': c.CPpassword.touched && c.CPpassword.errors }">
+                        <div *ngIf="c.CPpassword.touched && c.CPpassword.errors" class="invalid-feedback">
+                            <div *ngIf="c.CPpassword.errors.required">New password is required</div>
+                            <div *ngIf="c.CPpassword.errors.minlength || c.CPpassword.errors.pattern">
+                                Password should contain 8 characters includes one lowercase, uppercase and a digit
+                            </div>
+                        </div>
+                      </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control custome" placeholder="Confirm Password"
+                        formControlName="Cpassword" [ngClass]="{ 'is-invalid': c.Cpassword.touched && c.Cpassword.errors }">
+                        <div *ngIf="c.Cpassword.touched && c.Cpassword.errors" class="invalid-feedback">
+                            <div *ngIf="c.Cpassword.errors.required">Confirm password is required</div>
+                            <div *ngIf="c.Cpassword.errors.mustMatch">Passwords must match</div>
+                        </div>
+                    </div>
+                    <div class="form-group" style="float: right;">
+                        <button type="button" class="btn btn-danger btn-sm" style="margin-right: 5px;" (click)="backToHome()">Cancel</button>
+                        <button type="button" class="btn btn-info btn-sm" (click)="changePassword()" [disabled]='!changePwdForm.valid'>Change Password</button>
+                    </div>                 
+                </form>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<!--- end --->
+
+<!-- forgot password mobile otp verification and reset password modal-->
+
+<div class="modal md-11" id="forgotPwdOtp">
+    <div class="modal-dialog modal-md modal-dialog-scrollable">
+        <span class="pop"><img src="../../assets/images/popup.png" alt="" class="model-img"> </span>
+        <div class="modal-content mc-r">
+            <div class="modal-body" style="padding: 25px 25px 7px 35px;">
+                <form [formGroup]="forgotPwdOtpForm">
+                    <div class="form-group" >
+                       <input type="text" class="form-control custome" placeholder="Enter 4 digit OTP"
+                       formControlName="forgotOtp" [ngClass]="{ 'is-invalid': p.forgotOtp.touched && p.forgotOtp.errors }">
+                       <div *ngIf="p.forgotOtp.touched && p.forgotOtp.errors" class="invalid-feedback">
+                            <div *ngIf="p.forgotOtp.errors.required">OTP is required</div>
+                            <div *ngIf="p.forgotOtp.errors.minlength || p.forgotOtp.errors.maxlength">Plesae enter 4 digit OTP</div>
+                        </div>
+                     </div>
+                    <div class="form-group" style="float: right;">
+                        <button type="button" class="btn btn-danger btn-sm" style="margin-right: 5px;" (click)="backToHome()">Cancel</button>
+                        <button type="button" class="btn btn-info btn-sm" (click)="verifyMobileOtp()" [disabled]='!forgotPwdOtpForm.valid'>Verify</button>
+                    </div>                 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end -->
+
+<!-- routerLink="/home/Dashboard" -->

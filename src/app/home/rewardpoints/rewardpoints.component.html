@@ -1,0 +1,57 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 nopadding">
+            <div class="bg-left-02">
+                <img src="../../assets/images/login-logo.png" class="bg-logo-register" alt="">
+            </div>
+        </div>
+        <div class="col-md-6 nopadding">
+            <div class="right-content-r">
+                <div *ngIf="userRewards != ''">
+                    <div class="row">
+                        <div class="col-md-2 rewarc-ic-1">
+                            <img src="../../assets/images/rewards-icon.png" alt="">
+                        </div>
+                        <div class="col-md-3 rewarc-ic-2">
+                            <h4>{{ totalRewards }} Pts</h4>
+                            <h6>Total Rewards </h6>
+                        </div>
+                        <div class="col-md-3 rewarc-ic-3">
+                            <button class="btn btn-info redeem">
+                                <a (click)="redeemPage()">Redeem</a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="main-rewareds" style="margin-top: 15px;">
+                        <div class="row">
+                            <div class="col-md-4 col-wdt" *ngFor="let rewards of userRewards">
+                                <div class="boxt-01 padding-full">
+                                    <img src="../../assets/images/Rewaards-star.png" alt="">
+                                    <h4>{{ rewards.points }} Pts</h4>
+                                    <h5 *ngIf="rewards.violationType != ''">{{ rewards.violationType }}</h5>
+                                    <h5 *ngIf="rewards.violationType == undefined">Violation Issue</h5>
+                                    <hr>
+                                    <img src="../../assets/images/icons/clock-02.png" alt="" class="margin-h">
+                                    <span class="sp-font">{{ transform(rewards.submitted_on) }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="userRewards == ''">
+                    <div class="row">
+                        <div class="col-md-12 noDataView">
+                            No rewards to view
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="footer">
+                        <h6>Powered by Ojas Innovative Technologies</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
